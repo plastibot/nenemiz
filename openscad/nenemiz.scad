@@ -4,33 +4,64 @@ include <lx16a.scad>
 wall = 1;
 
 //servo_jacket();
-//n_40a();
+
+//translate([-120, 0, -80])
+//rotate([0, -270, 180])
+n_40a();
+
+/**
+translate([120, 0, -80])
+rotate([0, -270, 180])
+mirror([0, 0, 1])
+n_40a();
+
+translate([97, 10, -35])    
+rotate([-90, 0, -90])
+n_43r();
+
+translate([120, 23, 13])    
+rotate([90, 0, 90])
+n_41r();
+
+translate([120, 0, 90])
+rotate([0, -270, 180])
+mirror([1, 0, 0])
+n_40a();
+**/
+
+
+//n_13a();
+
 
 //servo_arm();
 //servo_leg();
 
-rotate([0,-90,90])
-mock_up();
+//rotate([0,-90,90])
+//mock_up();
 
 module mock_up(){
     
-    translate([0, -41, 0])
+    translate([0, -35, 0])
     servo_leg();
     
-    translate([0, 41, 0])
+    translate([0, 35, 0])
     mirror([0, 1, 0])
     servo_leg();
     
-    translate([180, 70, 0])
+    translate([160, 77, 0])
     rotate([0,180, -90])
     mirror([1, 0, 0])
     servo_arm();
     
-    translate([180, -70, 0])
+    translate([160, -77, 0])
     rotate([0, 180, -90])
     //mirror([1, 0, 0])
     servo_arm();
     
+    
+    translate([-45, -55, -10])    
+    rotate([0, -90, 90])
+    n_43r();
     
 }
 
@@ -134,6 +165,7 @@ module servo_jacket(){
 
 module n_40a(){
     
+    color("darkgrey")
     union(){
         difference(){
             
@@ -159,15 +191,70 @@ module n_40a(){
         
     }
     
-    //translate([-(servo_w/2 + wall), 0, -wall/2])
-    //lx16a();
+    translate([-(servo_w/2 + wall), 0, -wall/2])
+    lx16a();
     
-    //translate([servo_w/2 + wall, 0, -wall/2])
-    //rotate([90,0,0])
-    //lx16a();
+    translate([servo_w/2 + wall, 0, -wall/2])
+    rotate([90,0,0])
+    lx16a();
     
 }
 
+module n_41r(){
+    
+    union(){
+        difference(){
+            
+            translate([-(servo_w/2 + wall), 0, -wall/2])
+            servo_jacket();
+            
+            //translate([-(servo_w/2 + wall), servo_h/2 + wall + 5, 0])
+            //cube([servo_w + wall * 2 + 1, 10, servo_h + wall * 2 + 1], center = true);
+        
+        }
+        
+        hull(){
+            
+            translate([-(servo_w/2 + wall), servo_h/2 + wall + 5, -servo_h/2 - wall * 3])
+            cube([servo_w + wall * 2, 10, wall*4], center = true);
+            
+            translate([-(servo_w/2 + wall), servo_h/2 + wall + 45, -servo_h/2 - wall * 3]) 
+            cylinder(d=horn_d, h=4, center=true);
+            
+            translate([-(servo_w/2 + wall + 15), servo_h/2 + wall + 35, -servo_h/2 - wall * 3]) 
+            cylinder(d=horn_d, h=4, center=true);
+            
+        }
+        
+    }
+    
+    translate([-(servo_w/2 + wall), 0, -wall/2])
+    lx16a();
+    
+    
+}
+
+
+module n_13a(){
+    
+    union(){
+        
+        hull(){
+                
+            translate([-(servo_w/2 + wall), servo_h/2 + wall + 5, -servo_h/2 - wall * 3])
+            cube([horn_d, 5, wall*4], center = true);
+            
+            //translate([-(servo_w/2 + wall), servo_h/2 + wall + 45, -servo_h/2 - wall * 3]) 
+            //cylinder(d=horn_d, h=4, center=true);
+            
+            translate([-(servo_w/2 + wall + 5), servo_h/2 + wall + 25, -servo_h/2 - wall * 3]) 
+            cylinder(d=horn_d, h=4, center=true);
+            
+        }
+        
+    }
+    
+}
 
 //arm
 module servo_arm(){
@@ -192,7 +279,9 @@ module servo_arm(){
 
 module servo_leg(){
     
+    //ankle
     translate([-(servo_w/2 + wall * 3 + servo_w * 2 + 40), 0, -wall/2])
+    rotate([0,180,180])
     lx16a();
     
     translate([-(servo_w/2 + wall + servo_w + 40), 0, -wall/2])
@@ -204,19 +293,70 @@ module servo_leg(){
     rotate([90,90,0])
     lx16a();
     
-    
+    //pelvis
     translate([servo_w/2 + servo_w + wall, 0, -wall/2])
     rotate([90,0,0])
     lx16a();
     
-    translate([servo_h/2 + wall * 3 + servo_w * 2, 0, -wall/2])
-    rotate([90,0,-90])
+    translate([servo_w/2 + wall * 3 + servo_w * 2, 0, -wall/2])
+    rotate([0,180,0])
     lx16a();
     
-    translate([servo_h/2 + wall * 3 + servo_w * 2 + servo_l/2, servo_w + wall * 3, -wall/2])
-    rotate([180,0,90])
+    translate([servo_h/2 + wall * 7 + servo_w * 2 + servo_l/2, 0, -wall/2])
+    rotate([90,-90,-90])
     lx16a();    
     
+    
+    
+}
+
+module n_43r(){
+    
+    hull(){
+        translate([0, 32, 0])
+        cylinder(d=horn_d, h=3);
+        
+        translate([0, -32, 0])
+        cylinder(d=horn_d, h=3);
+        
+        translate([17, 22, 0])
+        cylinder(d=horn_d, h=3);
+        
+        translate([17, -3, 0])
+        cylinder(d=horn_d, h=3);
+    
+        translate([-7, 0, 1.5])
+        cube([22, 22, 3], center=true);
+        
+        //translate([0, 41, 3])
+        //sphere(r=2);
+        
+        //translate([0, -41, 3])
+        //sphere(r=2);
+        
+        //translate([26, 22, 3])
+        //sphere(r=2);
+        
+        //translate([26, -3, 3])
+        //sphere(r=2);
+        
+
+    }
+    
+        //translate([0, 41, 3])
+        //sphere(r=2);
+        
+        //translate([0, -41, 3])
+        //sphere(r=2);
+        
+        //translate([26, 22, 3])
+        //sphere(r=2);
+        
+        //translate([26, -3, 3])
+        //sphere(r=2);
+    
+        //translate([-14, 0, 1.5])
+        //cube([22, 22, 3], center=true);
     
     
 }

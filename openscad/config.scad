@@ -64,7 +64,8 @@ connectors_h = 4;
 connectors_depth = 9;
 
 
-
+horn_d = 19.56;
+horn_screws_distance = 14.00;
 
 
 
