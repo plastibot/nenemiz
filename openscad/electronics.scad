@@ -10,7 +10,9 @@ $fn=100;
 
 //dc_dc();
 
-camera();
+//camera();
+
+mic();
 
 //imu();
 
@@ -533,6 +535,32 @@ module speaker(){
         //translate([-24/2, 28.5/2,-1]) cylinder(d=2.1, h=3);
         //translate([24/2,-28.5/2,-1]) cylinder(d=2.1, h=3);
         //translate([24/2, 28.5/2,-1]) cylinder(d=2.1, h=3);
+    }
+    
+    
+}
+
+
+module mic(){
+    
+    difference(){
+        union(){
+            color("limegreen")
+            translate([-15/2, -15/2, 0])
+            cube([15, 15, 1.7]);
+            
+            //mims
+            color("darkgrey")
+            translate([15/2 - 5/2, 0, 1.7])
+            cube([4, 2.5, 1.5], center=true);
+            
+            
+            
+        }
+        
+    translate([15/2 - 5/2, -10/2, -1]) #cylinder(d=2.1, h=3);
+    translate([15/2 - 5/2, 10/2, -1]) #cylinder(d=2.1, h=3);
+        
     }
     
     
