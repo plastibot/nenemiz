@@ -46,13 +46,13 @@ module head(){
             translate([21,27,1]) rotate([-90,-90,0]) color("orange") {
             
                 hull(){
-                    translate([15/2 - 5/2, -10/2, -2]) cylinder(d=5, h=2);
-                    translate([15/2 + 10/2, -10/2, 0]) cylinder(d=5, h=1);
-                }
+                    translate([15/2 - 7/2, -10/2, -1]) cylinder(d=5, h=2);
+                    translate([15/2 + 10/2, -10/2, -1]) cylinder(d=5, h=1);
+                //}
                     
-                hull(){    
-                    translate([15/2 - 5/2, 10/2, -2]) cylinder(d=5, h=2);
-                    translate([15/2 + 10/2, 10/2, 0]) cylinder(d=5, h=1);
+                //hull(){    
+                    translate([15/2 - 7/2, 10/2, -1]) cylinder(d=5, h=2);
+                    translate([15/2 + 10/2, 10/2, -1]) cylinder(d=5, h=1);
                 }
             }
             
@@ -60,13 +60,13 @@ module head(){
             translate([-21,27,1]) rotate([-90,-90,0]) color("orange") {
             
                 hull(){
-                    translate([15/2 - 5/2, -10/2, -2]) cylinder(d=5, h=2);
-                    translate([15/2 + 10/2, -10/2, 0]) cylinder(d=5, h=1);
-                }
+                    translate([15/2 - 7/2, -10/2, -1]) cylinder(d=5, h=2);
+                    translate([15/2 + 10/2, -10/2, -1]) cylinder(d=5, h=1);
+                //}
                     
-                hull(){    
-                    translate([15/2 - 5/2, 10/2, -2]) cylinder(d=5, h=2);
-                    translate([15/2 + 10/2, 10/2, 0]) cylinder(d=5, h=1);
+                //hull(){    
+                    translate([15/2 - 7/2, 10/2, -1]) cylinder(d=5, h=2);
+                    translate([15/2 + 10/2, 10/2, -1]) cylinder(d=5, h=1);
                 }
             }
         
@@ -107,17 +107,26 @@ module head(){
 
     
         //holes to atach lcd screen
-        translate([0.8,-8,21]) rotate([0,0,180]) {
+        translate([0.8,-8,21]) rotate([0,0,180]) {  //was 21 on Z
             translate([-54.42/2,-39.18/2,-1]) #cylinder(d=2.1, h=5);
             translate([-54.42/2, 39.18/2,-1]) cylinder(d=2.1, h=5);
             translate([54.42/2,-39.18/2,-1]) cylinder(d=2.1, h=5);
             translate([54.42/2, 39.18/2,-1]) cylinder(d=2.1, h=5);  
             
-            translate([-(58.42/2)+4,-(43.18-1)/2,-1])
-            cube([50,42.18,4.4]);
-         }  
+            translate([-(58.42/2)+3.7,-(44.18-1)/2,-1])
+            cube([51,44.18,4.4]);
+            
+            translate([0.8, -1.5, 2])
+            cube([44, 37, 6], center=true);
+               
+            
+        }  
     
         
+        //hole for LCD screen
+        //color("orange")
+        //translate([0, -6.5, 23])
+        //cube([44, 37, 6], center=true);
 
         //holes to attach i2s
         translate([0,23,-1.5]) rotate([90,0,0]) {
@@ -155,7 +164,7 @@ module head(){
             translate([15/2 - 5/2, 10/2, -2]) cylinder(d=2.1, h=4);
             
             //hole to mic
-            translate([15/2 - 5/2, 0, 0]) rotate([0, 20, 0]) cylinder(d=2, h=7);
+            translate([15/2 - 5/2, 0, -1.5]) rotate([0, 20, 0]) cylinder(d1=4, d2=2, h=9);
             
             //pocket
             translate([15/2 - 21/2, 0, -0.8]) cube([11, 18, 2], center=true);
@@ -168,7 +177,7 @@ module head(){
             translate([15/2 - 5/2, 10/2, -2]) cylinder(d=2.1, h=4);
             
             //hole to mic
-            translate([15/2 - 5/2, 0, 0]) rotate([0, 20, 0]) cylinder(d=2, h=7);
+            translate([15/2 - 5/2, 0, -1.5]) rotate([0, 20, 0]) #cylinder(d1=4, d2=2, h=9);
             
             //pocket
             translate([15/2 - 21/2, 0, -0.8]) cube([11, 18, 2], center=true);
@@ -178,10 +187,7 @@ module head(){
         
         
         
-        //hole for LCD screen
-        color("orange")
-        translate([0, -6.5, 23])
-        cube([44, 37, 6], center=true);
+
         
         
         
