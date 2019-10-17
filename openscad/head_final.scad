@@ -14,7 +14,7 @@ module head(){
             
 
             rotate([180, 0, -90])
-            import("../stl/head_base_3.stl", convexity=3);
+            import("../stl/head_base.stl", convexity=3);
             
             
             //standoffs to attach i2s
@@ -78,36 +78,36 @@ module head(){
 
 
         // holes to attach camera
-        //translate([0,19.5,19.8])  {
-            //translate([-39/2,-12.2/2+2.25,0.5]) cylinder(d=2.1, h=4);
-            //translate([-39/2, 12.2/2-2.25,0.5]) cylinder(d=2.1, h=4);
-            //translate([39/2,-12.2/2+2.25,0.5]) cylinder(d=2.1, h=4);
-            //translate([39/2, 12.2/2-2.25,0.5]) cylinder(d=2.1, h=4);
+        translate([0,19.5,19.8])  {
+            translate([-39/2,-12.2/2+2.25,0.5]) cylinder(d=2.1, h=4);
+            translate([-39/2, 12.2/2-2.25,0.5]) cylinder(d=2.1, h=4);
+            translate([39/2,-12.2/2+2.25,0.5]) cylinder(d=2.1, h=4);
+            translate([39/2, 12.2/2-2.25,0.5]) cylinder(d=2.1, h=4);
             
             //pocket for camera sensor
             
-            //translate([-45.8/2, -12.8/2-1.2, 0])
-            //cube([45.8, 14, 0.9]);
+            translate([-45.8/2, -12.8/2-1.2, 0])
+            cube([45.8, 14, 0.9]);
             
             //color("darkgrey")
-            //translate([-9/2, -9/2, 0.9])
-            //cube([9.0, 9.0, 2.2]);
+            translate([-9/2, -9/2, 0.9])
+            cube([9.0, 9.0, 2.2]);
             
             //color("darkgrey")
-            //translate([0, 0, 0.9+2.2])
-            //cylinder(d=8.6, h=1.8, $fn=32);
+            translate([0, 0, 0.9+2.2])
+            cylinder(d=8.6, h=1.8, $fn=32);
         
             //color("darkgrey")
-            //translate([0, 0, 0.9+2.2+1.8])
-            //cylinder(d=6.6, h=2.3, $fn=32);
+            translate([0, 0, 0.9+2.2+1.8])
+            cylinder(d=6.6, h=2.3, $fn=32);
             
             //color("darkgrey")
-            //translate([0, 0, 0.9+2.2+1.8+2.3])
-            //cylinder(d1=2, d2=5, h=2, $fn=32);
-        //}
+            translate([0, 0, 0.9+2.2+1.8+2.3])
+            cylinder(d1=2, d2=5, h=2, $fn=32);
+        }
         
 
- /**   
+    
         //holes to atach lcd screen
         translate([0.8,-8,21]) rotate([0,0,180]) {  //was 21 on Z
             translate([-54.42/2,-39.18/2,-1]) #cylinder(d=2.1, h=5);
@@ -139,7 +139,7 @@ module head(){
         }
              
          
-**/
+
     
         //holes to attach left speaker
         translate([31,-2.9,1.6]) rotate([0,90,0]) {
@@ -159,7 +159,7 @@ module head(){
             translate([24/2, 28.5/2,-1]) cylinder(d=2.1, h=4);
         }
         
-   /**     
+        
         //holes to attach right mic
         translate([21,26.5,1]) rotate([-90,-90,0]) {
             translate([15/2 - 5/2, -10/2, -2]) cylinder(d=2.1, h=4);
@@ -191,7 +191,7 @@ module head(){
         
 
         
-       **/ 
+       
         
 
 //    }
