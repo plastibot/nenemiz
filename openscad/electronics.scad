@@ -5,6 +5,8 @@ $fn=100;
 
 //pi_zero();
 
+//sipeed_dock();
+
 //translate ([0,100,0])
 //pca9685();
 
@@ -12,13 +14,15 @@ $fn=100;
 
 //camera();
 
-mic();
+//mic();
 
 //imu();
 
 //esp8266();
 
 //screen();
+
+screen_ST7789();
 
 //speaker();
 
@@ -79,6 +83,59 @@ module pi_zero(){
 }
 
 
+module sipeed_dock(){
+    // PCB
+    color("limegreen") difference(){
+        hull(){
+            translate([-(52.324-6)/2,-(37.338-6)/2,0]) cylinder(r=3, h=1.4 );
+            translate([-(52.324-6)/2, (37.338-6)/2,0]) cylinder(r=3, h=1.4 );
+            translate([ (52.324-6)/2,-(37.338-6)/2,0]) cylinder(r=3, h=1.4 );
+            translate([ (52.324-6)/2, (37.338-6)/2,0]) cylinder(r=3, h=1.4 );
+        }
+        
+        translate([-45.72/2,-31.115/2,-1]) cylinder(d=2.75, h=3);
+        //translate([-45.72/2, 31.115/2,-1]) cylinder(d=2.75, h=3);
+        translate([45.72/2,-31.115/2,-1]) cylinder(d=2.75, h=3);
+        translate([45.72/2, 31.115/2,-1]) cylinder(d=2.75, h=3);
+    }
+    
+    // Headers
+    translate([-5*2.54+1.27,32/2-2.54,1.4])
+    header(10,2);
+    
+    translate([-5*2.54+1.27,-32/2-2.54,1.4])
+    header(10,2);
+    
+    translate([-32/2-2.54,0-2.54*5+1.27,1.4])
+    header(2,9);
+    
+    translate([32/2-2.54,0-2.54*5+1.27,1.4])
+    header(2,9);
+    
+    
+
+
+        
+    // micro USB
+    color("silver") translate([41/2, 0-4, 1.4]) cube([9,8,2.6]);
+
+     
+    // M1w Kendrite 210
+    color("silver") translate([-24/2, -24/2, 1.4]) cube([24,24,2.6]);
+    
+    //LCD connector
+    color("white") translate([-51/2,-10.25, -1.5]) cube([4,15,1.5]);    
+    
+    // Camera Connector
+    color("white") translate([-2.5,-11.25, -1.5]) cube([15, 4, 1.5]); 
+    
+    // Micro SD Card
+    color("silver") translate([-13,2.4,-1.5]) cube([10,5,1.5]);    
+    
+    
+}
+
+
 
 module pca9685(withHeader=true){  
   
@@ -131,6 +188,33 @@ module pca9685(withHeader=true){
 
   
 }
+
+module screen_ST7789(){  
+  
+   
+    //lcd screen frame
+    color("white")
+    translate([-(60.26)/2,-(42.72)/2, 0])
+    cube([60.26, 42.72, 2.45]);
+    
+    //screen
+    color("darkgrey")
+    translate([-(48.96/2)+3,-(36.72/2),0.1])
+    cube([48.96,36.72,2.7]);
+    
+    //spi connector
+    //translate([58.42/2-2.5,-43.18/2+7.62,1.4])
+    //rotate([0,0,90])
+    //header(8,1);
+    
+    //translate([-58.42/2+2.54+2.5,-43.18/2+5.08,1.4])
+    //rotate([0,0,90])
+    //header(4,1);
+
+  
+}
+
+
 
 module screen_ST7735(withHeader=false){  
   

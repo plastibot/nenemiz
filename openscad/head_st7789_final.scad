@@ -109,20 +109,26 @@ module head(){
 
     
         //holes to atach sipeed Dan & LCD
-        translate([0.8,-8,21]) rotate([0,0,180]) {  //was 21 on Z
-            translate([-60/2,-39.18/2,-1]) #cylinder(d=2.1, h=5);
-            translate([-60/2, 39.18/2,-1]) cylinder(d=2.1, h=5);
-            translate([60/2,-39.18/2,-1]) cylinder(d=2.1, h=5);
-            translate([60/2, 39.18/2,-1]) cylinder(d=2.1, h=5);  
+        translate([0, -8, 21]) rotate([0,0,180]) {
+            translate([-62/2,-46/2-3.5,-1]) #cylinder(d=2.1, h=5);
+            translate([-62/2, 46/2-3.5,-1]) cylinder(d=2.1, h=5);
+            translate([62/2,-46/2-3.5,-1]) cylinder(d=2.1, h=5);
+            translate([62/2, 46/2-3.5,-1]) cylinder(d=2.1, h=5);  
             
-            //translate([-(58.42/2)+3.7,-(43.18-0.5)/2,-1])
-            //cube([51,43.18,4.4]);
+            translate([-(61/2)-3,-(43)/2,3.25])
+            cube([61,43,2.5]);
             
-            translate([-30, -1.5, 2])
-            #cube([4, 15, 6], center=true);
+            translate([-(61/2)-3+9,-(43)/2+3,3.5])
+            cube([49,37,3.5]);
+            
+            translate([-33.25, 0, 2])
+            cube([2, 30, 6], center=true);
                
             
         }  
+        
+        translate([0, 0, 26])
+        cube([80, 70, 3.25], center=true);
     
         
 
