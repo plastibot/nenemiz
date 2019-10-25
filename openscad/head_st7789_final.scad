@@ -100,6 +100,9 @@ module head(){
             translate([-45.8/2, -12.8/2-1.2, 0])
             cube([45.8, 14, 0.9]);
             
+            translate([-45.8/2, -12.8/2+1, -5])
+            #cube([2, 12, 6]);
+
             //color("darkgrey")
             translate([-9/2, -9/2, 0.9])
             cube([9.0, 9.0, 2.2]);
@@ -140,10 +143,10 @@ module head(){
     
         //holes to atach LCD
         translate([0, -8, 21]) rotate([0,0,180]) {
-            translate([-62/2,-46/2-3.5,-1]) #cylinder(d=2.1, h=5);
-            translate([-62/2, 46/2-3.5,-1]) cylinder(d=2.1, h=5);
-            translate([62/2,-46/2-3.5,-1]) cylinder(d=2.1, h=5);
-            translate([62/2, 46/2-3.5,-1]) cylinder(d=2.1, h=5);  
+            translate([-62/2,-46/2-3.5,-1]) cylinder(d=2.6, h=5);
+            translate([-62/2, 46/2-3.5,-1]) cylinder(d=2.6, h=5);
+            translate([62/2,-46/2-3.5,-1]) cylinder(d=2.6, h=5);
+            //translate([62/2, 46/2-3.5,-1]) cylinder(d=2.6, h=5);  
             
             translate([-(61/2)-3,-(43)/2,3.25])
             cube([61,43,2.5]);
@@ -238,7 +241,7 @@ module head(){
 
     }
     
-    render_electronics();
+    //render_electronics();
 
 }
 
@@ -346,10 +349,10 @@ module LCD_face_bezel(){
     
         //holes to atach LCD
         translate([0, -8, 21]) rotate([0,0,180]) {
-            translate([-62/2,-46/2-3.5,1]) #cylinder(d=2, h=5);
+            translate([-62/2,-46/2-3.5,1]) cylinder(d=2, h=5);
             translate([-62/2, 46/2-3.5,1]) cylinder(d=2, h=5);
             translate([62/2,-46/2-3.5,1]) cylinder(d=2, h=5);
-            translate([62/2, 46/2-3.5,1]) cylinder(d=2, h=5);  
+            //translate([62/2, 46/2-3.5,1]) cylinder(d=2, h=5);  
             
             translate([-(61/2)+3,-(43)/2,3.25])
             cube([61,43,2.5]);
