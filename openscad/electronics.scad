@@ -5,7 +5,7 @@ $fn=100;
 
 //pi_zero();
 
-//sipeed_dock();
+sipeed_dock();
 
 //translate ([0,100,0])
 //pca9685();
@@ -22,7 +22,7 @@ $fn=100;
 
 //screen();
 
-screen_ST7789();
+//screen_ST7789();
 
 //speaker();
 
@@ -36,6 +36,12 @@ module header(pins, rows){
   color("gold")
   for(x=[0:pins-1],y=[0:rows-1])
     translate([x*2.54+(1.27+.6)/2,y*2.54+(1.27+.6)/2,-3.5]) cube([0.6,0.6,11.5]);
+}
+
+module pads(pins, rows){
+    color("gold")
+    for(x=[0:pins-1],y=[0:rows-1])
+        translate([x*2.54+(1.27+.6)/2,y*2.54+(1.27+.6)/2,-1.5]) cylinder(d=1.8, h=1.6, $fn=8);
 }
 
 
@@ -101,16 +107,16 @@ module sipeed_dock(){
     
     // Headers
     translate([-5*2.54+1.27,32/2-2.54,1.4])
-    header(10,2);
+    pads(10,2);
     
     translate([-5*2.54+1.27,-32/2-2.54,1.4])
-    header(10,2);
+    pads(10,2);
     
     translate([-32/2-2.54,0-2.54*5+1.27,1.4])
-    header(2,9);
+    pads(2,9);
     
     translate([32/2-2.54,0-2.54*5+1.27,1.4])
-    header(2,9);
+    pads(2,9);
     
     
 
