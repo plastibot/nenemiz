@@ -15,6 +15,7 @@
 - none
 
 ### PARTS THAT NEED MIRRORING ON BLENDER AND FOR 3D PRINT SO RIGHT LEG CAN BE BUILT
+- pelvis_2_trunk_hinge
 - ankle_2_foot_horn
 - thigh_hinge
 - calf_horn
