@@ -207,29 +207,29 @@ module head(){
 module render_electronics() {
     
         //engrave camera profile on inner face
-        //translate([0,19.5,19.3])
-        //camera();
+        translate([0,19.5,19.3])
+        camera();
     
         //engrave lcd screen
-        //translate([0.8,-8,18.5])
-        //rotate([0,0,180])
-        //screen_ili9225();
+        translate([0.8,-8,18.5])
+        rotate([0,0,180])
+        screen_ili9225();
     
         //engrave I2S amplifier card
-        //translate([0,22,-1.5])
-        //rotate([90,0,0])
-        //I2S_card();
+        translate([0,22,-1.5])
+        rotate([90,0,0])
+        I2S_card();
     
         //engrave left speaker
-        //translate([28.5,-2.9,1.6])
-        //rotate([0,90,0])
-        ////rotate([0,0,90])
-        //speaker();
+        translate([28.5,-2.9,1.6])
+        rotate([0,90,0])
+        //rotate([0,0,90])
+        speaker();
     
         //engrave right speaker
-        //translate([-28.5,-2.9,1.6])
-        //rotate([0,-90,0])
-        //speaker();
+        translate([-28.5,-2.9,1.6])
+        rotate([0,-90,0])
+        speaker();
         
         //microphone right
         translate([21,24.5,1])

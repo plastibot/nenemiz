@@ -1,20 +1,27 @@
 use <lx16a.scad>;
+use <head_final.scad>;
 
 
 rad=2;
 
-//translate([0, 0, 28])
-//chest();
+translate([0, 0, 28])
+chest();
 
 
 trunk();
 
-//translate([0, 0, -3])
-//control_board();
+translate([0, 0, -0])
+rotate([0, 180, 0])
+control_board();
 
-translate([0, 0, -20])
+translate([0, 0, 1])
 trunk_bracket();
 
+translate([0, 95, 20])
+head();
+
+translate([0, 95, 20])
+render_electronics();
 
 module chest(){
     color("yellow")
@@ -414,6 +421,14 @@ module control_board(){
 
         }
     }
+    
+    
+    color("DimGray")
+    translate([13, -10, -21.5])
+    rotate([90, 0, 90])
+    import("../stl/Jetson_Nano_DK_v1.2.stl", convexity=3);
+    
+    
 }
 
 module trunk_bracket(){
@@ -496,6 +511,11 @@ module trunk_bracket(){
             cube([24, 24, 25.5]);
             
             
+            //pocket for servo controller board
+            translate([-40/2, -10, -0.5])
+            cube([40, 40, 25.5]);            
+            
+            
             // holes to attach neck servo
             translate([22/2, 40, 15.5])
             rotate([0, 90, 0])
@@ -529,11 +549,37 @@ module trunk_bracket(){
             translate([-22/2, 52, -2.5])
             rotate([0, -90, 0])
             #cylinder(r=2, h=24.5, $fn=32);
+            
+            
 
         }
     }
     
-    translate([-38, 30, 0])
+    //left arm servo
+    translate([-40.4, 31, 13])
     rotate([0, 90, 180])
     lx16a();
+    
+    //right arm servo    
+    translate([40.4, 31, 13])
+    rotate([0, -90, 180])
+    lx16a();
+    
+    //left leg servo
+    translate([22.4, -32.5, 13])
+    rotate([0, -90, 90])
+    lx16a();
+
+    //right leg servo
+    translate([-22.4, -32.5, 13])
+    rotate([0, 90, -90])
+    lx16a();
+
+    //neck servo
+    color("DimGray")
+    translate([0, 46, 14.5])
+    rotate([90, 0, 180])
+    import("../stl/xl-320.stl", convexity=3);
+    
+    
 }
